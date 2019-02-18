@@ -55,4 +55,10 @@ class BanksControllerTest {
                                 "}"))
                 .andExpect(status().isCreated)
     }
+
+    @Test
+    fun testGetBankOnNotExisting() {
+        Mockito.`when`(mockedService.getBank(1)).thenReturn(Optional.empty())
+        mockMvc.perform(get("/banks/1")).andExpect(status().isNotFound)
+    }
 }
