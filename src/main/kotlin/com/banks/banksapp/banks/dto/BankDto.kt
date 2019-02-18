@@ -16,6 +16,6 @@ fun toEntity(from: BankDto): Bank {
     return Bank(from.id, from.name)
 }
 
-fun toDtos(from: MutableList<Bank>): List<BankDto> {
+fun toDtos(from: List<Bank>): List<BankDto> {
     return from.map(::toDto)
 }
